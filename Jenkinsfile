@@ -45,7 +45,7 @@ pipeline {
                 script {
                     try {
                         echo "*** Stage Deploy: Desplegando aplicación..."
-                        bat 'npm start'
+                        bat 'npm start &'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Deploy")
                     }
