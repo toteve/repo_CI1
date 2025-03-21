@@ -5,20 +5,21 @@ pipeline {
     }
 
     stages {
-            /*         stage('Checkout') {
-                        steps {
-                            echo "📥 Clonando el repositorio..."
-                            checkout scm
-                        }
-                    }
-            */
+
+        stage('Checkout') {
+            steps {
+                echo "📥 Clonando el repositorio..."
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
                 script {
                     try {
                         echo "⚙️ Instalando dependencias..."
-                        sh 'npm install'
-	                    sh 'npm run build'
+                        'npm install'
+	                    'npm run build'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Build")
                     }
