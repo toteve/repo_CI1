@@ -8,7 +8,7 @@ jobs:
   build:
     stage: build
     script:
-      - echo 'Instalando dependencias...'
+      - echo Instalando dependencias...
       - npm install
       - npm run build
     on_failure:
