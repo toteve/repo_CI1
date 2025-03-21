@@ -18,8 +18,8 @@ pipeline {
                 script {
                     try {
                         echo "*** Stage Build: Instalando dependencias y Build..."
-                        'npm install'
-	                    'npm run build'
+                        bat 'npm install'
+	                    bat 'npm run build'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Build")
                     }
@@ -32,7 +32,7 @@ pipeline {
                 script {
                     try {
                         echo "*** Stage Test: Ejecutando pruebas..."
-                        'npm run test'
+                        bat 'npm run test'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Test")
                     }
@@ -45,7 +45,7 @@ pipeline {
                 script {
                     try {
                         echo "*** Stage Deploy: Desplegando aplicación..."
-                        'npm start'
+                        bat 'npm start'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Deploy")
                     }
