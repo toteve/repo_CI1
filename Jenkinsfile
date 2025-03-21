@@ -32,7 +32,7 @@ pipeline {
                 script {
                     try {
                         echo "🧪 Ejecutando pruebas..."
-                        sh 'npm run test'
+                        'npm run test'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Test")
                     }
