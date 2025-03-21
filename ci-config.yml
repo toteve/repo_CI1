@@ -1,0 +1,32 @@
+version: 1.0
+stages:
+  - build
+  - test
+  - deploy
+
+jobs:
+  build:
+    stage: build
+    script:
+      - echo "Instalando dependencias..."
+      - npm install
+      - npm run build
+    on_failure:
+      - echo "❌ Error en la etapa de Build"
+
+  test:
+    stage: test
+    script:
+      - echo "Ejecutando pruebas..."
+      - npm run test
+    on_failure:
+      - echo "❌ Error en la etapa de Test"
+
+  deploy:
+    stage: deploy
+    script:
+      - echo "Desplegando aplicación..."
+      - npm start &
+    on_failure:
+      - echo "❌ Error en la etapa de Deploy"
+ 
