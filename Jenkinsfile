@@ -45,7 +45,8 @@ pipeline {
                 script {
                     try {
                         echo "*** Stage Deploy: Desplegando aplicación..."
-                        bat 'npm start &'
+                        bat 'timeout 60s npm start'  // Ejecuta npm start durante 60 segundos y luego lo termina
+                        //bat 'npm start &'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Deploy")
                     }
