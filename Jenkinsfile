@@ -8,7 +8,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo "📥 Clonando el repositorio..."
+                echo "*** Stage Checkout: Clonando el repositorio..."
                 checkout scm
             }
         }
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        echo "⚙️ Instalando dependencias..."
+                        echo "*** Stage Build: Instalando dependencias y Build..."
                         'npm install'
 	                    'npm run build'
                     } catch (Exception e) {
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        echo "🧪 Ejecutando pruebas..."
+                        echo "*** Stage Test: Ejecutando pruebas..."
                         'npm run test'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Test")
@@ -44,8 +44,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        echo "🚀 Desplegando aplicación..."
-                        'npm start &'
+                        echo "*** Stage Deploy: Desplegando aplicación..."
+                        'npm start'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Deploy")
                     }
