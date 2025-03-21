@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "build": "echo 'No hay proceso de compilación en este proyecto'",
-    "test": "jest --coverage",
+    "test": "jest --forceExit",
     "lint": "eslint ."
   },
   "dependencies": {
