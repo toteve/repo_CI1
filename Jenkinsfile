@@ -45,7 +45,7 @@ pipeline {
                 script {
                     try {
                         echo "🚀 Desplegando aplicación..."
-                        sh 'npm start &'
+                        'npm start &'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Deploy")
                     }
