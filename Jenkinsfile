@@ -44,8 +44,10 @@ pipeline {
             steps {
                 script {
                     try {
-                        echo "*** Stage Deploy: Desplegando aplicación..."
-                        bat 'npm start &'
+                        echo "*** Stage Deploy: Generar y Ejecutar imagen Docker..."
+                        // bat 'npm start &'
+                        bat 'docker build -t myapp .'
+                        bat 'docker run -d -p 3000:3000 myapp'
                     } catch (Exception e) {
                         error("❌ Error en la etapa de Deploy")
                     }
@@ -57,6 +59,7 @@ pipeline {
     post {
         success {
             echo "✅ Pipeline completado con éxito"
+            echo "🚀 Aplicación desplegada en http://localhost:3000"
         }
         failure {
             echo "❌ El pipeline ha fallado"
